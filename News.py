@@ -38,7 +38,7 @@ if st.button('Summarize'):
         news_data.parse()
         summary=news_data.text.split('\n')
         summary="".join(summary).replace('\n','')
-        summary=Summarize(summary)
+        #summary=Summarize(summary)
         
         image=news_data.top_image
         date=news.pubDate.text 
@@ -48,7 +48,7 @@ if st.button('Summarize'):
             st.write(summary)
             st.write(date)
             st.markdown(['[Read More]({})'.format(Link)])
-        time.sleep(20)
+        #time.sleep(20)
             
         
     
