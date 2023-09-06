@@ -6,6 +6,12 @@ import streamlit as st
 import openai
 import time
 
+from newspaper import Config
+
+user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'
+config = Config()
+config.browser_user_agent = user_agent
+
 def Summarize(news_data):
     openai.api_key = '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'
     summarize = openai.Completion.create(
@@ -33,7 +39,7 @@ if st.button('Summarize'):
         news=news_list[newses]
         Title=news.title.text
         Link=news.link.text
-        news_data = Article(news.link.text)
+        news_data = Article(news.link.text,config=config)
         news_data.download()
         news_data.parse()
         summary=news_data.text.split('\n')
