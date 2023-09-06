@@ -1,0 +1,5 @@
+streamlit
+openai
+beautifulsoup4
+newspaper3k
+urllib3
